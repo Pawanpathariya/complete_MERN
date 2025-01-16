@@ -13,4 +13,4 @@ module.exports={
     empDetail,
     empSalary,
     workExperience
-}
+} 
