@@ -6,7 +6,7 @@
     return "<h1> My course is BTech </h1>"
  })
 
- module.exports = {
+ module.exports={
     Myclg,
     MyCourse
  }
