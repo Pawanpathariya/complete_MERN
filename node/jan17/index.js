@@ -32,10 +32,17 @@ fs.open('myfile.txt','w',(err,file)=>{
 }) */
 
 //writeFile() it replace file
-
+/*
 const fs=require('fs');
 fs.writeFile('myfile.txt','I am Pawan Pathariya ',(err)=>{
     if(err) throw err;
     console.log("file created")
+})
+    */
+
+const fs =require('fs');
+fs.unlink('main.txt',(err)=>{
+    if (err) throw err;
+    console.log("file deleted");
 })
   
