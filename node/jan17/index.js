@@ -47,10 +47,10 @@ fs.unlink('main.txt',(err)=>{
     console.log("file deleted");
 })
   */
- 
+
 //rename()
 const fs =require('fs');
-fs.rename('pawan.txt','main.txt',(err)=>{
+fs.rename('main.txt','pawan.txt',(err)=>{
 if(err) throw err;
 console.log("file renamed");
 })
