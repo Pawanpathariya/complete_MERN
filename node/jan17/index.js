@@ -39,10 +39,17 @@ fs.writeFile('myfile.txt','I am Pawan Pathariya ',(err)=>{
     console.log("file created")
 })
     */
-
+//unlink() delete
+/*
 const fs =require('fs');
 fs.unlink('main.txt',(err)=>{
     if (err) throw err;
     console.log("file deleted");
 })
-  
+  */
+//rename()
+const fs =require('fs');
+fs.rename('pawan.txt','main.txt',(err)=>{
+if(err) throw err;
+console.log("file renamed");
+})
