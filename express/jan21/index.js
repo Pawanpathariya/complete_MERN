@@ -6,4 +6,4 @@ const stuRoute=require('./routes/stuRoutes')
 app.use('/students',stuRoute)
 app.listen(port,()=>{
     console.log(`Server run at ${port} port `);
-})
+}) 
