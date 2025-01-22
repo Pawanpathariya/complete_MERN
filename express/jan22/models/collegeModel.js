@@ -6,4 +6,4 @@ city:String,
 mobile:Number
 })
 
-module.exports=mongoose.model("contact",contactSchema);
+module.exports=mongoose.model("contact",contactSchema); 
