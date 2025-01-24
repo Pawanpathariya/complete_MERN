@@ -12,6 +12,31 @@
      <li style="display: inline-block; margin-right: 20px;"><a style="color: white; text-decoration: none;" href="/students/display">Display</a></li>
 </nav>
 
-    <h3>This is student display page</h3>
+    <center>
+<h1>This is student display page</h1>
+
+<table border="1px" style="font-size: 30px;">
+<tr>
+    <th style="padding: 20px;">Rollno</th>
+    <th style="padding: 20px;" >Name</th>
+    <th style="padding: 20px;" >City</th>
+    <th style="padding: 20px;" >Fees</th>
+</tr>
+<%   
+MyData.map((key)=>{
+%>
+<tr>
+<td style="padding: 10px;"><%=key.rollno%> %></td>
+<td style="padding: 10px;" ><%=key.name%> %></td>
+<td style="padding: 10px;" ><%=key.city%> %></td>
+<td style="padding: 10px;" ><%=key.fees%> %></td>
+
+</tr>
+<%
+})
+
+%>
+</table>
+</center>
 </body>    
 </html>

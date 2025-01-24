@@ -5,8 +5,9 @@ const stuhome=(req,res)=>{
 const stuinsert=(req,res)=>{
     res.render("insert");
 }   
-const studisplay=(req,res)=>{
-    res.render("display");
+const studisplay=async(req,res)=>{
+    const data= await stuModel.find();
+    res.render("display",{MyData:data});
 }
 
 const stusave=async(req,res)=>{
