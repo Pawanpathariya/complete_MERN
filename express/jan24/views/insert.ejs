@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav style="background-color: #333; padding: 10px; text-align: center;">
+        <li style="display: inline-block; margin-right: 20px;"><a style="color: white; text-decoration: none;" href="/students/home">Home</a></li>
+        <li style="display: inline-block; margin-right: 20px;"><a style="color: white; text-decoration: none;" href="/students/insert">Insert</a></li>
+         <li style="display: inline-block; margin-right: 20px;"><a style="color: white; text-decoration: none;" href="/students/display">Display</a></li>
+    </nav>
+    <div>
+    <h2 style="text-align: center; color: #333; font-weight: bold;">Insert Page</h2>
+
+    <form action="/students/save" method="POST" style="display: flex; flex-direction: column; align-items: center;">
+        <label style="margin-bottom: 10px;">
+            Enter Rollno :<input type="text" name="rollno" style="padding: 5px; border-radius: 5px; border: 1px solid #333;"></label>
+        <br>
+        <label style="margin-bottom: 10px;">
+            Enter Name :<input type="text" name="name" style="padding: 5px; border-radius: 5px; border: 1px solid #333;"> </label>
+        <br>
+        <label style="margin-bottom: 10px;">
+            Enter City :<input type="text" name="city" style="padding: 5px; border-radius: 5px; border: 1px solid #333;"></label>
+        <br>
+        <label style="margin-bottom: 10px;">
+            Enter Fees :<input type="text" name="fees" style="padding: 5px; border-radius: 5px; border: 1px solid #333;"></label>
+        <br>
+        <button style="padding: 10px; background-color: #333; color: white; border: none; border-radius: 5px;">Insert</button>
+    </form>
+
+
+</div>
+</body>
+</html>
