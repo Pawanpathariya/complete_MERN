@@ -11,10 +11,13 @@ const handleInput=(e)=>{
 }
 
 const handleSubmit=async()=>{
-  
+  let api=await"http://localhost:5000/students/datasave";
+    axios.post(api,input).then((res)=>{
+   alert("Data Inserted Successfully");
+   console.log(res.data)
+})
+ 
 }
-
-
     return(
         <>
             <h1>Insert</h1>

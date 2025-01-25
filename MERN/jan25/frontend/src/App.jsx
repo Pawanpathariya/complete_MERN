@@ -9,7 +9,6 @@ const App=()=>{
     <>
     <BrowserRouter>
     <Routes>
-
 <Route path="/" element={<Layout/>}>
 <Route index element={<Home/>}></Route>
 <Route path="/about" element={<About/>}/>
@@ -17,11 +16,8 @@ const App=()=>{
 <Route path='/update' element={<About/>}/>
 <Route path="/insert" element={<Insert/>}></Route>
 <Route path="/display" element={<Display/>}></Route>
-
 </Route>
-
     </Routes>
-    
     </BrowserRouter>
     </>
   )
