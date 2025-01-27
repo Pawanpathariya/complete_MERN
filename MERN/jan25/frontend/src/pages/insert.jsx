@@ -16,18 +16,37 @@ const handleSubmit=async()=>{
    alert("Data Inserted Successfully");
    console.log(res.data)
 })
- 
 }
     return(
         <>
-            <h1>Insert</h1>
+            <div style={{border:"2px solid #ccc",padding:"10px",width:"400px",margin:"auto",marginTop:"20px",borderRadius:"10px"}}>
+            <h1 style={{textAlign:"center"}}>Insert</h1>
 
-            Enter Rollno <input type="text" name="rollno" onChange={handleInput} /> <br />
-            Enter name <input type="text" name="name" onChange={handleInput} /> <br />
-            Enter city <input type="text" name="city" onChange={handleInput} /> <br />
-            Enter fees <input type="text" name="fees" onChange={handleInput} /> <br />
+            <table style={{width:"100%"}}>
+                <tbody>
+                    <tr style={{padding:"20px"}}>
+                        <td>Enter Rollno</td>
+                        <td><input type="text" name="rollno" onChange={handleInput} style={{width:"100%"}} /></td>
+                    </tr>
+                    <tr style={{padding:"20px"}}>
+                        <td>Enter name</td>
+                        <td><input type="text" name="name" onChange={handleInput} style={{width:"100%"}} /></td>
+                    </tr>
+                    <tr style={{padding:"20px"}}>
+                        <td>Enter city</td>
+                        <td><input type="text" name="city" onChange={handleInput} style={{width:"100%"}} /></td>
+                    </tr>
+                    <tr style={{padding:"20px"}}>
+                        <td>Enter fees</td>
+                        <td><input type="text" name="fees" onChange={handleInput} style={{width:"100%"}} /></td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <button onClick={handleSubmit}>Insert</button>
+            <center style={{marginTop:"20px"}}>
+                <button onClick={handleSubmit} style={{width:"100px",height:"30px",backgroundColor:"#4CAF50",color:"white",borderRadius:"5px",cursor:"pointer"}}>Insert</button>
+            </center>
+            </div>
         </>
     )
 }

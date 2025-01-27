@@ -1,20 +1,24 @@
-import { useState,useEffect } from "react"
+//search using post request
+
+import { useState,useEffect } from "react";
 import axios from "axios";
-const Display=()=>{
+const Search=()=>{
 
+    
 const [data,setdata]=useState([]);
-
+const [rollno,setrollno]=useState("");
 const getdata=async()=>{
-    let api=await"http://localhost:5000/students/getdata"
-    axios.get(api).then((res)=>{
-     setdata(res.data)
+    let api=await`http://localhost:5000/students/getdata`
+    axios.post(api,{roll:rollno}).then((res)=>{ 
+
+        if(res.data.length==0){
+            alert("No Data Found");
+        }
+
+        else{
+   setdata(res.data)}
     })
 }
-
-useEffect(()=>{
-    getdata();
-},[])
-
 
 const ans=data.map((key)=>{
     return(
@@ -31,12 +35,18 @@ const ans=data.map((key)=>{
         </>
     )
 })
+
     return(
         <>
-         
+            <h1 style={{textAlign:"center"}}>Search By roll no</h1>
 
+            <div style={{display:"flex",justifyContent:"center",alignItems:"center",margin:"20px"}}>
+                <input type="text" name="rollno" value={rollno} onChange={(e)=>{setrollno(e.target.value)}} style={{width:"300px",height:"20px",fontSize:"20px",padding:"5px"}}/>
+                <button onClick={getdata} style={{width:"100px",height:"30px",backgroundColor:"#4CAF50",color:"white",borderRadius:"5px",cursor:"pointer",marginLeft:"10px"}}>Search</button>
+            </div>
+
+            
             <center>
-            <h1>Display</h1>
             <table border={2} style={{margin:"20px",fontSize:"20px"}}>
             <thead>
                 <tr>
@@ -54,4 +64,4 @@ const ans=data.map((key)=>{
     )
 }
 
-export default Display
+export default Search

@@ -11,4 +11,16 @@ const datasave=async(req,res)=>{
     res.send(data);
 }
 
-module.exports={datasave}
+
+const getdata=async(req,res)=>{
+    const data=await stuModel.find()
+    res.send(data);
+}
+
+const dataSearch=async(req,res)=>{
+    const {roll}=req.body;
+    const data=await stuModel.find({rollno:roll})
+    res.send(data);
+}
+
+module.exports={datasave,getdata,dataSearch}

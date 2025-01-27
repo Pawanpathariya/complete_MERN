@@ -7,6 +7,7 @@ return(
     <Link to="/display" style={{ textDecoration: 'none', color: '#333' }}>Display</Link>
     <Link to="/update" style={{ textDecoration: 'none', color: '#333' }}>Update</Link>
     <Link to="/about" style={{  textDecoration: 'none', color: '#333' }}>About</Link>
+    <Link to="/search" style={{  textDecoration: 'none', color: '#333' }}>Search</Link>
 </nav>
 )
 }

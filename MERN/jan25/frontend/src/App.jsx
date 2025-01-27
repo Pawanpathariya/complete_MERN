@@ -4,6 +4,7 @@ import Home from "./pages/home"
 import About from "./pages/about"
 import Insert from "./pages/insert"
 import Display from "./pages/display"
+import Search from "./pages/search"
 const App=()=>{
   return(
     <>
@@ -16,6 +17,7 @@ const App=()=>{
 <Route path='/update' element={<About/>}/>
 <Route path="/insert" element={<Insert/>}></Route>
 <Route path="/display" element={<Display/>}></Route>
+<Route path="/search" element={<Search/>}></Route>
 </Route>
     </Routes>
     </BrowserRouter>
