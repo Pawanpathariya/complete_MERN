@@ -1,30 +1,38 @@
-import { useState } from "react"
+import { useParams } from "react-router-dom"
+import { useEffect,useState } from "react"
 import axios from "axios"
-import {message} from "antd"
-const Insert = () => {
+import { message } from "antd"
+import { useNavigate } from "react-router-dom"
+const Edit=()=>{
+    const navigate=useNavigate()
     const [input, setInput] = useState({})
     const handleInput = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
+const loadData=()=>{
+    let api='http://localhost:8000/student/getEditData';
+    axios.post(api,{id:id}).then((res)=>{
+        setInput(res.data)
+    })
+}
 
+
+useEffect(()=>{
+   loadData() 
+},[])
     const handleSubmit = async () => {
-        let api = "http://localhost:8000/student/datasave";
-        await axios.post(api, input).then((res) => {
-            console.log("data save")
-            message.success("Data Inserted Successfully")   
-            
-            setInput({
-                name: "",
-                city: "",
-                course: "",
-                fees: ""
-            })
+        let api = "http://localhost:8000/student/editdata";
+        axios.post(api, input).then((res) => {
+            message.success("Data Updated Successfully")
+            navigate("/update")
         })
     }
-    return (
+    const {id}=useParams()
+    return(
         <>
-            <h1 style={{textAlign:"center",marginBottom:"20px",backgroundColor:"#4CAF50",color:"white",padding:"20px",borderRadius:"10px 10px 0 0"}}>Insert Page</h1>
-            <div id="form" style={{ border: "1px solid black", padding: "20px", borderRadius: "10px", width: "400px", margin: "0 auto", marginBottom: "50px", textAlign: "center", backgroundColor: "#f0f0f0" ,marginTop:"50px"}}>
+    <h1 style={{ backgroundColor: "#4CAF50", color: "white", padding: "20px", textAlign: "center", borderRadius: "10px 10px 0 0" }}>Edit</h1>
+
+    <div id="form" style={{ border: "1px solid black", padding: "20px", borderRadius: "10px", width: "400px", margin: "0 auto", marginBottom: "50px", textAlign: "center", backgroundColor: "#f0f0f0" ,marginTop:"50px"}}>
         <label htmlFor="name" style={{ display: "block", marginBottom: "10px" }}>Enter Name</label>
         <input type="text" name="name" value={input.name} onChange={handleInput} style={{ width: "100%", padding: "10px", marginBottom: "10px", borderRadius: "5px" }} />
 
@@ -39,8 +47,7 @@ const Insert = () => {
 
         <button onClick={handleSubmit} style={{ backgroundColor: "#4CAF50", color: "white", padding: "10px 20px", border: "none", borderRadius: "5px", cursor: "pointer", marginTop: "20px" }}>Save</button>
     </div>
-        </>
+</>
     )
 }
-
-export default Insert
+export default Edit

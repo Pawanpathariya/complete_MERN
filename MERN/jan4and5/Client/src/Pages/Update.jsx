@@ -4,10 +4,11 @@ import axios from "axios"
 import { FaTrash } from "react-icons/fa";
 import { FaPen } from "react-icons/fa";
 import { message } from "antd";
+import { useNavigate } from "react-router-dom";
 const Update=()=>{
-
-const handleEdit=(id)=>{
-    message.success("id : "+id)
+const navigate=useNavigate()
+const handleEdit=(id)=>{;
+   navigate(`/edit/${id}`);
 }
 
 
@@ -42,8 +43,8 @@ const ans=data.map((item)=>{
             <td>{item.city}</td>
             <td>{item.course}</td>
             <td>{item.fees}</td>
-            <td onClick={()=>handleEdit(item._id)}><FaPen /></td>
-            <td onClick={()=>handleDelete(item._id)} ><FaTrash /></td>
+            <td onClick={()=>handleEdit(item._id)} id="edit"><FaPen /></td>
+            <td onClick={()=>handleDelete(item._id)} id="delete"><FaTrash /></td>
         </tr>
     )
 })
@@ -52,8 +53,8 @@ const ans=data.map((item)=>{
 
     return(
         <>
-        <h1 style={{textAlign:"center",marginBottom:"20px",marginTop:"20px"}}>Update Page</h1>
-<div style={{width:"70%",marginLeft:"20%"}} className="table-responsive"  >
+        <h1 style={{textAlign:"center",marginBottom:"20px",backgroundColor:"#4CAF50",color:"white",padding:"20px",borderRadius:"10px 10px 0 0"}}>Update Page</h1>
+<div style={{width:"70%",marginLeft:"20%",backgroundColor:"#f0f0f0",padding:"20px",borderRadius:"0 0 10px 10px"}} className="table-responsive"  >
         <Table striped bordered hover style={{fontSize:"20px"}}>
       <thead>
         <tr>

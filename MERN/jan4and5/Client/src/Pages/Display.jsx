@@ -32,8 +32,8 @@ const ans=data.map((item)=>{
 
     return(
         <>
-        <h1 style={{textAlign:"center",marginBottom:"20px",marginTop:"20px"}}>Display</h1>
-<div style={{width:"70%",marginLeft:"20%"}} className="table-responsive"  >
+        <h1 style={{textAlign:"center",marginBottom:"20px",backgroundColor:"#4CAF50",color:"white",padding:"20px",borderRadius:"10px 10px 0 0"}}>Display</h1>
+<div style={{width:"70%",marginLeft:"20%",backgroundColor:"#f0f0f0",padding:"20px",borderRadius:"0 0 10px 10px"}} className="table-responsive"  >
         <Table striped bordered hover style={{fontSize:"20px"}}>
       <thead>
         <tr>

@@ -15,8 +15,8 @@ const getdata=async(req,res)=>{
   res.send(stude)
 }
 const dataSearch=async(req,res)=>{
-const rollno=req.body;
-const stude= await stuModel.find(rollno)
+const {name}=req.body;
+const stude= await stuModel.find({name:name})
 res.send(stude)
 
 }
@@ -27,5 +27,14 @@ const deletedata=async(req,res)=>{
   res.json("Data is Deleted");
     }
 
-
-module.exports={dataSave,getdata,dataSearch,deletedata}
+    const editShow=async(req,res)=>{
+        const{id}=req.body
+        const stude= await stuModel.findById(id)
+        res.send(stude)
+      }
+const dataSaveEdit=async(req,res)=>{
+  const {_id}=req.body;
+  await stuModel.findByIdAndUpdate(_id,req.body)
+  res.send("Data Updated")
+}
+module.exports={dataSave,getdata,dataSearch,deletedata,editShow,dataSaveEdit}
