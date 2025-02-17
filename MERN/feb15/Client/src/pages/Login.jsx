@@ -1,9 +1,13 @@
 import { useState } from "react";
-import axios from "axios";  
+import axios from "axios"; 
+import {message} from 'antd' 
 import { useNavigate } from "react-router-dom";
 const Login=()=>{
 const navigate=useNavigate();
-    const [login,setLogin]=useState({});
+    const [login,setLogin]=useState({
+        email:"",
+        password:""
+    });
 
     const handleLogin=(e)=>{
         setLogin({...login,[e.target.name]:e.target.value})
@@ -13,15 +17,15 @@ const SubmitLogin=async()=>{
     let api=`http://localhost:8080/student/loginuser`;
     try {
         let res=await axios.post(api,login);
-        if(res.data.length==0){
-            alert("Login Failed");
-        }
-        else{
-        alert("Login Successfull");
-        navigate("/home");
-        }
+   if(res){
+    alert("Login Successfull");
+    navigate("/home");
+
+    localStorage.setItem("name",res.data.name);
+    localStorage.setItem("email",res.data.email);
+   }
     } catch (error) {
-        console.log(error);
+        alert(error.response.data.msg);
     }
 }
 
