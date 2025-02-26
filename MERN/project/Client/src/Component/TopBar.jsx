@@ -11,6 +11,8 @@ const TopBar = () => {
           <Nav className="me-auto">
             <Nav.Link as={Link} to={'/home'}>Home</Nav.Link>
             <Nav.Link as={Link} to={'/register'}>Register Doctor</Nav.Link>
+            <Nav.Link as={Link} to={'/login'}>Login as Doctor</Nav.Link>
+            <Nav.Link as={Link} to={'/search'}>Search</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

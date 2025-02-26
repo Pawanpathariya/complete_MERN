@@ -36,3 +36,47 @@
         height: 400px;
     }
 }
+
+#login{
+    width: 50vw;
+    margin: auto;
+    padding: 5px;
+    margin-top: 5vh;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    padding: 20px;
+   margin-bottom: 20px;
+
+}
+
+#searchTable{
+    text-align: center;
+    margin: auto;
+    margin-top: 5vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+
+
+    tr{
+        td,th{
+            border: 2px solid black;
+            padding: 10px;
+        }
+    }
+}
+
+#search{
+    width: 50vw;
+    margin: auto;
+    padding: 5px;
+    margin-top: 5vh;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    padding: 20px;
+   margin-bottom: 20px;
+}
