@@ -1,6 +1,8 @@
 import { useState } from "react"
 import BASE_URL from "../confiq"
 import axios from "axios"
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
 const Search=()=>{
     const [doctor,setdocotor]=useState([]);
     const [doctorName,setdoctorName]=useState('');
@@ -14,7 +16,7 @@ const Search=()=>{
             console.log(response.data)
              setdocotor(response.data)
         } catch (error) {
-          alert(error.response.data)
+          toast.error(error.response.data)
         }
     }
     const ans=doctor.map((key)=>{
@@ -74,6 +76,7 @@ const Search=()=>{
 
 </table>
         </div>
+        <ToastContainer />
         </>
     )
     

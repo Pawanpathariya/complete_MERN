@@ -11,7 +11,7 @@ const DashBoard = () => {
                 </Col>
                 <Col md={10}>
                     <Topbar1 />
-                    <div style={{ padding: '20px' }}>
+                    <div style={{ padding: '20px',width:"80%" ,textAlign:"center"}}>
                       <Outlet/>
                     </div>
                 </Col>

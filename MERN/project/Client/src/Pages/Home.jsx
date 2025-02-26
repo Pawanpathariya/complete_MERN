@@ -7,10 +7,16 @@ import Carousel from 'react-bootstrap/Carousel';
 import doctor1 from '../Images/doc1.avif'
 import doctor2 from '../Images/doc2.avif'
 import doctor3 from '../Images/doc3.avif'
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
+import Appointment from "./Appointment";
+import { useNavigate } from "react-router-dom";
 const Home=()=>{
     const [mydata,setmydata]=useState([]);
-
-
+    const navigate = useNavigate();
+const Appoint=(id)=>{
+    navigate(`/appointment/${id}`)
+}
 const loadData=async()=>{ 
  let api=`${BASE_URL}/doctors/showdoctor`
  try {
@@ -18,7 +24,7 @@ const loadData=async()=>{
     setmydata(response.data)
     console.log(mydata)
  } catch (error) {
-    alert(error.response.data.msg)
+    toast.error(error.response.data.msg)
  }
 }
 
@@ -43,7 +49,7 @@ const ans=mydata.map((key)=>{
           Mobile : {key.mobile} <br />
           Email : {key.email}
         </Card.Text>
-        <Button variant="primary">Book Appointment</Button>
+        <Button variant="primary" onClick={()=>{Appoint(key._id)}}>Book Appointment</Button>
       </Card.Body>
     </Card>
         </>
@@ -79,7 +85,7 @@ const ans=mydata.map((key)=>{
         <div id='card'>
         {ans}
         </div>
-       
+       <ToastContainer />
         </>
     )
 }

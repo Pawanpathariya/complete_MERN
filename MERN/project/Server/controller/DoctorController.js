@@ -58,9 +58,22 @@ const searchDoctor=async(req,res)=>{
         res.status(400).send({msg:"DATA NOT SAVED Server Error"})
     }
 }
+
+const loadDoctorData=async(req,res)=>{
+    try {
+        const {id}=req.query
+        const data=await DoctorModel.findById(id);
+        res.status(200).send(data)
+    } catch (error) {
+        res.status(400).send({msg:"Server Error"})
+    }
+}
+
+
 module.exports={
     Registeration,
     showDoctorData,
     loginDoctor,
-    searchDoctor
+    searchDoctor,
+    loadDoctorData
 }

@@ -1,6 +1,8 @@
 import { useState } from "react"
 import BASE_URL from "../confiq"
 import axios from "axios"
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
 const Register=()=>{
     const [doctorName, setDoctorName] = useState('')
     const [address, setAddress] = useState('')
@@ -17,10 +19,10 @@ const Register=()=>{
         let api=`${BASE_URL}/doctors/register`
         try {
            let response= await axios.post(api,{doctorName, address, city, mobile, specialization, email, password})
-           alert(response.data.msg)
+           toast.success(response.data.msg)
         } catch (error) {
             console.log(error)
-          alert(error.response.data.msg)
+          toast.error(error.response.data.msg)
         }
         
     }
@@ -64,6 +66,7 @@ const Register=()=>{
             <button type="submit">Register</button>
         </form>
         </div>
+        <ToastContainer />
         </>
     )
 }

@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import BASE_URL from '../confiq';
 import axios from 'axios';
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
 const Login=()=>{
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -18,11 +20,11 @@ const handleSubmit = async(e) => {
       localStorage.setItem("doctorName", response.data.doctorName);
       localStorage.setItem("email", response.data.email);
       localStorage.setItem("id", response.data._id);
-      alert("Login Successfull")
+      toast.success("Login Successfull")
    navigate('/dashboard')
     } catch (error) {
       console.log(error)
-     alert(error.response.data)
+     toast.error(error.response.data)
     }
 
 }
@@ -50,6 +52,7 @@ return(
     </Form>
    
     </div>
+    <ToastContainer/>
     </>
 )
 }
