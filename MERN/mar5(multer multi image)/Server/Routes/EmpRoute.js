@@ -40,4 +40,5 @@ const storage = multer.diskStorage({
 router.post('/insert',upload.array('images', 10),EmpController.EmpInsert);
 router.get('/display',EmpController.EmpDisplay);
 router.post('/update',EmpController.EmpUpdate);
+router.post('/view',EmpController.EmpView);
 module.exports=router;

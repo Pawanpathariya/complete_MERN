@@ -23,4 +23,11 @@ const {defaultimage,images,id,restimages}=req.body;
 let user=await EmpModel.findByIdAndUpdate(id,{defaultimage:images,images:restimages});
 res.send("Updated");
 }
-module.exports={EmpInsert,EmpDisplay,EmpUpdate};
+
+
+const EmpView=async(req,res)=>{
+    const {id}=req.body;
+    const data=await EmpModel.findById(id);
+    res.send(data);
+}
+module.exports={EmpInsert,EmpDisplay,EmpUpdate,EmpView};

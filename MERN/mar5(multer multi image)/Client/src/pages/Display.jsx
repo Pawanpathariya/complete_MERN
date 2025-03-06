@@ -1,6 +1,8 @@
 import { useState,useEffect } from "react"
 import axios from "axios"
+import {useNavigate} from "react-router-dom"
 const Display = () => {
+  const navigate=useNavigate();
   const [data,setData]=useState([]);
   const [currentPage,setCurrentPage]=useState(1);
   const [recordsPerPage]=useState(1);
@@ -20,13 +22,6 @@ const Display = () => {
     loadData();
   },[])
 
-  const handleUpdate=({defaultimage,images,id})=>{
-    let api="http://localhost:8080/employee/update";
-    axios.post(api,{defaultimage,images,id}).then((response)=>{
-      loadData();
-    })
-  }
-
   const ans=currentRecords.map((item)=>{
     return(
       <>
@@ -34,7 +29,7 @@ const Display = () => {
         <td>{item.name}</td>
         <td>{item.empno}</td>
         <td>{item.city}</td>
-        <td><img src={`http://localhost:8080/${item.defaultimage}`} width="300px" height="400px"/></td>
+        <td onClick={()=>{navigate(`/viewpro/${item._id}`)}}><img src={`http://localhost:8080/${item.defaultimage}`} width="300px" height="400px"/></td>
       </tr>
 
       <tr >
@@ -42,7 +37,7 @@ const Display = () => {
       {item.images.map((key1)=>{
            return(
             <>
-               <img src={`http://localhost:8080/${key1}`}  width="200" height="100" onClick={()=>{handleUpdate({defaultimage:item.defaultimage,images:key1,id:item._id,restimages:item.images})}}  />
+               <img src={`http://localhost:8080/${key1}`}  width="200" height="100" />
             </>
            )
         })}
