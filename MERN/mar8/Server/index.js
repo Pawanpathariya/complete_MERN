@@ -50,7 +50,7 @@ app.use(session({
 
   app.get('/session',(req,res)=>{  
      const {name,college,branch}=req.session;
-    res.send({name,college,branch});
+    res.send({name,college,branch,mysessionid:req.sessionID});
   })
 
   app.get('/sessionset',(req,res)=>{
