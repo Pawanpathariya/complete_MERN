@@ -8,8 +8,9 @@ const cors=require('cors');
 const bodyparser=require('body-parser');
 require('dotenv').config();
 const port=process.env.PORT;
-const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser');
+
+
+//const cookieParser = require('cookie-parser');
 
 
 
@@ -47,8 +48,9 @@ app.use(session({
   }));
 
 
-  app.get('/session',(req,res)=>{    
-    res.send(req.session);
+  app.get('/session',(req,res)=>{  
+     const {name,college,branch}=req.session;
+    res.send({name,college,branch});
   })
 
   app.get('/sessionset',(req,res)=>{
